@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Guru - Web Drive Tugas Python</title>
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body class="dashboard-guru-page">
+
+<header>
+    <h1>🎓 Dashboard Guru</h1>
+    <div class="header-right">
+        <span class="user-chip">👤 <span id="userName">...</span></span>
+        <button class="btn btn-logout" id="logoutBtn">Keluar</button>
+    </div>
+</header>
+
+<main>
+    <div id="flash" class="flash" style="display:none;"></div>
+
+    <div class="stats">
+        <div class="stat"><div class="num" id="statTotal">0</div><div class="lbl">Tugas masuk</div></div>
+        <div class="stat pending"><div class="num" id="statPending">0</div><div class="lbl">Belum diperiksa</div></div>
+        <div class="stat done"><div class="num" id="statDone">0</div><div class="lbl">Sudah diperiksa</div></div>
+        <div class="stat"><div class="num" id="statStudents">0</div><div class="lbl">Murid yang mengumpulkan</div></div>
+    </div>
+
+    <div class="card">
+        <h2>Tugas dari murid</h2>
+
+        <div class="filters">
+            <input type="text" id="search" placeholder="Cari nama murid, nama file, atau keterangan..." aria-label="Cari tugas">
+            <select id="statusFilter" aria-label="Filter status">
+                <option value="all">Semua status</option>
+                <option value="pending">Belum diperiksa</option>
+                <option value="done">Sudah diperiksa</option>
+            </select>
+        </div>
+
+        <div id="tableWrapper"><p class="empty">Memuat data...</p></div>
+    </div>
+
+    <!-- Hasil Run ala terminal VS Code -->
+    <div id="runModal" class="modal-overlay" style="display:none;">
+        <div class="terminal-box">
+            <div class="terminal-titlebar">
+                <div class="terminal-dots">
+                    <span class="dot-red"></span>
+                    <span class="dot-yellow"></span>
+                    <span class="dot-green"></span>
+                </div>
+                <span class="terminal-tab" id="runFilename">Terminal</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-prompt" id="runPrompt"></div>
+                <pre class="terminal-output" id="runOutput"></pre>
+                <div class="terminal-status" id="runStatus"></div>
+            </div>
+            <div class="terminal-footer">
+                <button id="closeModal">Tutup Terminal</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="common.js"></script>
+<script src="guru.js"></script>
+</body>
+</html>
